@@ -27,10 +27,10 @@ class EMM_Admin {
      */
     public function admin_menu() {
         add_menu_page(
-            __( 'Quantity Based Price', 'quantity-based-price' ),
-            __( 'Quantity Based Price', 'quantity-based-price' ),
+            __( 'Easy Maintenance Mode', 'easy-maintenance-mode' ),
+            __( 'Easy Maintenance Mode', 'easy-maintenance-mode' ),
             'manage_options',
-            'quantity-based-price',
+            'easy-maintenance-mode',
             array( $this, 'render_settings_page' ),
             'dashicons-cart',
             6
@@ -47,17 +47,13 @@ class EMM_Admin {
         ?>
 
         <div class="wrap">
-            <h1 class="">Add Pricing Rule</h1>
+            <h1 class=""><?php echo esc_html__('Easy Maintenance Mode', 'easy-maintenance-mode')?></h1>
 
             <form name="post" action="" id="">
                 <div id="" class="qbp-full-page">
                     <div id="" class="qbp-columns-2">
 
                         <div id="" class="qbp-column-a">
-                            <div class="qbp-title">
-                                <label for="title"></label>
-                                <input type="text" name="post_title" value="" placeholder="Add Title" id="title">
-                            </div>
 
                             <div class="qbp-global-pricing-rule-work">
                                 <div class="qbp-global-pricing-rule-work__title">
