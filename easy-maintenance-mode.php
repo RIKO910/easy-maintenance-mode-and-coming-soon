@@ -1,8 +1,8 @@
 <?php
 /*
- * Plugin Name:       Easy maintenance mode.
+ * Plugin Name:       Easy maintenance mode
  * Plugin URI:        https://tarikul.blog/plugins/quantity-based-price/
- * Description:
+ * Description:       A simple and lightweight maintenance mode plugin for WordPress.
  * Version:           1.0.0
  * Requires at least: 6.5
  * Requires PHP:      7.2
@@ -11,7 +11,6 @@
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       easy-maintenance-mode
- * Domain Path:       /languages/
 */
 
 /*

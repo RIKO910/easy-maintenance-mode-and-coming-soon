@@ -15,10 +15,9 @@ class EMM_Admin {
      */
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'admin_menu' ), 59 );
-
-        // Enqueue admin scripts and styles.
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
     }
+
     /**
      * Add top-level menu.
      *
@@ -32,7 +31,7 @@ class EMM_Admin {
             'manage_options',
             'easy-maintenance-mode',
             array( $this, 'render_settings_page' ),
-            'dashicons-cart',
+            'dashicons-hammer',
             6
         );
     }
@@ -52,44 +51,37 @@ class EMM_Admin {
             <form name="post" action="" id="">
                 <div id="" class="qbp-full-page">
                     <div id="" class="qbp-columns-2">
-
                         <div id="" class="qbp-column-a">
-
                             <div class="qbp-global-pricing-rule-work">
                                 <div class="qbp-global-pricing-rule-work__title">
-                                    How global pricing rules work
+                                    <?php echo esc_html__('How easy maintenance mode work', 'easy-maintenance-mode')?>
                                 </div>
-                                <p>Global rules are useful when you need to provide custom pricing for a bunch of products
-                                    and apply it to a specific group of users.</p>
+                                <p><?php echo esc_html__('Easy maintenance mode plugin for WordPress works by temporarily disabling the front-end of your website while allowing administrators to work on updates, design changes, or other maintenance tasks.', 'easy-maintenance-mode')?></p>
 
                                 <div class="qbp-global-pricing-rule-work__steps">
 
                                     <div class="qbp-global-pricing-rule-work-step">
-                                        <div class="qbp-global-pricing-rule-work-step__icon">$</div>
-                                        <div class="qbp-global-pricing-rule-work-step__title">Add pricing</div>
-                                        <div class="qbp-global-pricing-rule-work-step__description">Set up custom regular pricing.</div>
+                                        <div class="qbp-global-pricing-rule-work-step__icon"><i class="fas fa-power-off"></i></div>
+                                        <div class="qbp-global-pricing-rule-work-step__title"><?php echo esc_html__('On Maintenance Mode', 'easy-maintenance-mode')?></div>
+                                        <div class="qbp-global-pricing-rule-work-step__description"><?php echo esc_html__('Just click on off click button it work properly', 'easy-maintenance-mode')?></div>
                                     </div>
                                     <div class="qbp-global-pricing-rule-work-step qbp-global-pricing-rule-work-step--arrow">
                                         <span class="dashicons dashicons-arrow-right-alt"></span>
                                     </div>
 
                                     <div class="qbp-global-pricing-rule-work-step">
-                                        <div class="qbp-global-pricing-rule-work-step__icon">
-                                            <span class="dashicons dashicons-archive"></span></div>
-                                        <div class="qbp-global-pricing-rule-work-step__title">Select products</div>
-                                        <div class="qbp-global-pricing-rule-work-step__description">
-                                            Select products or product categories the rule will work for.</div>
+                                        <div class="qbp-global-pricing-rule-work-step__icon"><i class="fa fa-solid fa-pen-fancy"></i></div>
+                                        <div class="qbp-global-pricing-rule-work-step__title"><?php echo esc_html__('Design Template', 'easy-maintenance-mode')?></div>
+                                        <div class="qbp-global-pricing-rule-work-step__description"><?php echo esc_html__('You can chose any design', 'easy-maintenance-mode')?></div>
                                     </div>
                                     <div class="qbp-global-pricing-rule-work-step qbp-global-pricing-rule-work-step--arrow">
                                         <span class="dashicons dashicons-arrow-right-alt"></span>
                                     </div>
 
                                     <div class="qbp-global-pricing-rule-work-step">
-                                        <div class="qbp-global-pricing-rule-work-step__icon">
-                                            <span class="dashicons dashicons-database"></span></div>
-                                        <div class="qbp-global-pricing-rule-work-step__title">Specify quantity</div>
-                                        <div class="qbp-global-pricing-rule-work-step__description">
-                                            Specify minimum quantity for products.</div>
+                                        <div class="qbp-global-pricing-rule-work-step__icon"><i class="fa fa-solid fa-bell-slash"></i></div>
+                                        <div class="qbp-global-pricing-rule-work-step__title"><?php echo esc_html__('Time Duration', 'easy-maintenance-mode')?></div>
+                                        <div class="qbp-global-pricing-rule-work-step__description"><?php echo esc_html__('You can also chose time duration', 'easy-maintenance-mode')?></div>
                                     </div>
 
                                 </div>
@@ -108,8 +100,8 @@ class EMM_Admin {
                                             <span class="dashicons dashicons-arrow-right-alt2"></span>
                                         </div>
                                         <div class="qbp-global-pricing-rule-form-tab__title">
-                                            <h3>Pricing</h3>
-                                            <div>Set up regular and tiered pricing.</div>
+                                            <h3>Maintenance Mode</h3>
+                                            <div>Set up maintenance mode</div>
                                         </div>
                                     </div>
 
@@ -119,8 +111,8 @@ class EMM_Admin {
                                             <span class="dashicons dashicons-arrow-right-alt2"></span>
                                         </div>
                                         <div class="qbp-global-pricing-rule-form-tab__title">
-                                            <h3>Products</h3>
-                                            <div>Select products or product categories the rule will work for.</div>
+                                            <h3>Design Template</h3>
+                                            <div>Set design template</div>
                                         </div>
                                     </div>
 
@@ -131,8 +123,8 @@ class EMM_Admin {
                                             <span class="dashicons dashicons-arrow-right-alt2"></span>
                                         </div>
                                         <div class="qbp-global-pricing-rule-form-tab__title">
-                                            <h3>Quantity rules</h3>
-                                            <div>Specify minimum quantity for products.</div>
+                                            <h3>Time setup</h3>
+                                            <div>Time setup</div>
                                         </div>
                                     </div>
 
@@ -152,24 +144,15 @@ class EMM_Admin {
                                         <div class=" ">
 
                                             <p class="form-field">
-                                                <label for="pricing_type">Pricing type</label>
+                                                <label for="pricing_type">Maintenance mode</label>
                                                 <label for="pricing_type-flat" style="padding: 0; float: none; width: auto; margin: 0;">
                                                     <input type="radio"  style="margin-right: 3px;" value="flat" checked="checked" name="pricing_type" id="pricing_type-flat">
-                                                    Flat prices</label>
+                                                    on</label>
                                                 <label for="pricing_type-percentage" style="padding: 0; float: none; width: auto; margin: 0 5px 0 20px;">
                                                     <input type="radio"  value="percentage" style="margin-right: 3px;" name="pricing_type" id="pricing_type-percentage">
-                                                    Percentage discount</label>
+                                                    Off</label>
                                             </p>
 
-                                            <p class="form-field " >
-                                                <label for="regular_price">Regular price ($)</label>
-                                                <input  type="text" value="" placeholder="Leave empty to don't change it"  name="regular_price" id="regular_price">
-                                            </p>
-
-                                            <p class="form-field " >
-                                                <label for="sale_price">Sale price ($)</label>
-                                                <input  type="text" value="" placeholder="Leave empty to don't change it" id="sale_price" name="sale_price">
-                                            </p>
                                         </div>
                                     </div>
 
@@ -184,17 +167,7 @@ class EMM_Admin {
                                                 If you do not specify products or product categories, the rule will work for all products in your store. (excluding products selected in the exclusions section)			</div>
                                         </div>
 
-                                        <div class=" ">
-                                            <p class="form-field ">
-                                                <label for="product_categories">Apply for categories</label>
-                                                <input  type="text" value="" placeholder=""  name="product_categories" id="product_categories">
-                                            </p>
 
-                                            <p class="form-field " >
-                                                <label for="specific_products">Apply for specific products</label>
-                                                <input  type="text" value="" placeholder="" id="specific_products" name="specific_products">
-                                            </p>
-                                        </div>
                                     </div>
 
 
@@ -207,12 +180,7 @@ class EMM_Admin {
                                             <div class="qbp-global-pricing-rule-hint__content">
                                                 Quantity rules are applied to products individually.</div>
                                         </div>
-                                        <div class=" ">
-                                            <p class="form-field" >
-                                                <label for="minimum_quantity">Minimum order quantity</label>
-                                                <input  type="number" min="0" value="" placeholder="" id="minimum_quantity" name="minimum_quantity">
-                                            </p>
-                                        </div>
+
                                     </div>
 
                                 </div>
@@ -226,20 +194,13 @@ class EMM_Admin {
                             <div id="qbp_notice_notice_box" class="notice_box">
                                 <h2 class="notice_box_header">Publish</h2>
                                 <hr/>
-                                <div class="publish-content">
-                                    <label for="status-select">Status:</label>
-                                    <select id="status-select" name="status">
-                                        <option value="drift">Draft</option>
-                                        <option value="pending-review">Pending Review</option>
-                                    </select>
-                                </div>
                                 <div class="publish_button">
                                     <button class="btn ">Publish</button>
                                 </div>
                             </div>
 
                             <div id="qbp_notice_notice_box" class="notice_box">
-                                <h2 class="notice_box_header">Pricing notice</h2>
+                                <h2 class="notice_box_header">Maintenance mode</h2>
                                 <hr/>
                                 <div class="notice-content">
                                     <h4>Please note that rules in products have higher priority overriding the pricing rules you set here.</h4>
@@ -270,6 +231,25 @@ class EMM_Admin {
      */
     public function enqueue_admin_assets($hook)
     {
+        //  Fontawesome
+        wp_enqueue_style(
+                'main-font-awesome-css-custom',
+            EMM_PLUGIN_URL . 'assets/fontawesome/css/fontawesome.min.css',
+                array(),
+                '5.15.3'
+        );
+        wp_enqueue_style(
+            'main-all-css-custom',
+            EMM_PLUGIN_URL . 'assets/fontawesome/css/all.min.css',
+            array(),
+            '5.15.3'
+        );
+        wp_enqueue_style('font-awesome-webfonts',
+            EMM_PLUGIN_URL . 'assets/fontawesome/webfonts',
+            array(),
+            '5.15.3'
+        );
+
         // Enqueue admin CSS.
         wp_enqueue_style(
             'pct_admin_style',
