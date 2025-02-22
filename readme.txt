@@ -1,14 +1,14 @@
-=== Easy Maintenance Mode ===
+=== Easy Maintenance Mode and Coming Soon ===
 Contributors: tarikulislamriko
 Tags: maintenance mode, coming soon, site offline, under construction
 Requires at least: 6.5
-Tested up to: 6.5
+Tested up to: 6.8
 Requires PHP: 7.2
 Stable tag: 1.0.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A simple and lightweight maintenance mode plugin that allows you to display a customizable "Under Maintenance" page while your website is being updated.
+A simple and lightweight maintenance mode plugin that allows you to display a customizable "Under Maintenance" page.
 
 == Description ==
 

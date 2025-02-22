@@ -113,7 +113,7 @@ class EMM_Mode {
      * @since 1.0.0
      */
     public function load_textdomain() {
-        load_plugin_textdomain( 'easy-maintenance-mode', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
+        load_plugin_textdomain( 'easy-maintenance-mode-and-coming-soon', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
     }
 
     /**
