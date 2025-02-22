@@ -48,68 +48,68 @@ class EMM_Admin {
         <div class="wrap">
             <h1 class=""><?php echo esc_html__('Easy Maintenance Mode', 'easy-maintenance-mode-and-coming-soon')?></h1>
 
-            <div id="" class="TRPlugin-full-page">
-                <div id="" class="qbp-columns-2">
-                    <div id="" class="qbp-column-a">
-                        <div class="qbp-global-pricing-rule-work">
-                            <div class="qbp-global-pricing-rule-work__title">
+            <div id="" class="TRPlugin-emm-full-page">
+                <div id="" class="TRPlugin-emm-columns-2">
+                    <div id="" class="TRPlugin-emm-column-a">
+                        <div class="TRPlugin-emm-global-rule-work">
+                            <div class="TRPlugin-emm-global-rule-work__title">
                                 <?php echo esc_html__('How Easy Maintenance Mode Works', 'easy-maintenance-mode-and-coming-soon')?>
                             </div>
                             <p><?php echo esc_html__('Easy maintenance mode plugin for WordPress works by temporarily disabling the front-end of your website while allowing administrators to work on updates, design changes, or other maintenance tasks.', 'easy-maintenance-mode-and-coming-soon')?></p>
 
-                            <div class="qbp-global-pricing-rule-work__steps">
+                            <div class="TRPlugin-emm-global-rule-work__steps">
 
-                                <div class="qbp-global-pricing-rule-work-step">
-                                    <div class="qbp-global-pricing-rule-work-step__icon"><i class="fas fa-power-off"></i></div>
-                                    <div class="qbp-global-pricing-rule-work-step__title"><?php echo esc_html__('Turn On Maintenance', 'easy-maintenance-mode-and-coming-soon')?></div>
-                                    <div class="qbp-global-pricing-rule-work-step__description"><?php echo esc_html__('Click the toggle button to activate maintenance mode', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                <div class="TRPlugin-emm-global-rule-work-step">
+                                    <div class="TRPlugin-emm-global-rule-work-step__icon"><i class="fas fa-power-off"></i></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__title"><?php echo esc_html__('Turn On Maintenance', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__description"><?php echo esc_html__('Click the toggle button to activate maintenance mode', 'easy-maintenance-mode-and-coming-soon')?></div>
                                 </div>
-                                <div class="qbp-global-pricing-rule-work-step qbp-global-pricing-rule-work-step--arrow">
+                                <div class="TRPlugin-emm-global-rule-work-step TRPlugin-emm-global-rule-work-step--arrow">
                                     <span class="dashicons dashicons-arrow-right-alt"></span>
                                 </div>
 
-                                <div class="qbp-global-pricing-rule-work-step">
-                                    <div class="qbp-global-pricing-rule-work-step__icon"><i class="fa fa-solid fa-pen-fancy"></i></div>
-                                    <div class="qbp-global-pricing-rule-work-step__title"><?php echo esc_html__('Choose a Design Template', 'easy-maintenance-mode-and-coming-soon')?></div>
-                                    <div class="qbp-global-pricing-rule-work-step__description"><?php echo esc_html__('Select a pre-designed template for the maintenance page', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                <div class="TRPlugin-emm-global-rule-work-step">
+                                    <div class="TRPlugin-emm-global-rule-work-step__icon"><i class="fa fa-solid fa-pen-fancy"></i></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__title"><?php echo esc_html__('Choose a Design Template', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__description"><?php echo esc_html__('Select a pre-designed template for the maintenance page', 'easy-maintenance-mode-and-coming-soon')?></div>
                                 </div>
-                                <div class="qbp-global-pricing-rule-work-step qbp-global-pricing-rule-work-step--arrow">
+                                <div class="TRPlugin-emm-global-rule-work-step TRPlugin-emm-global-rule-work-step--arrow">
                                     <span class="dashicons dashicons-arrow-right-alt"></span>
                                 </div>
 
-                                <div class="qbp-global-pricing-rule-work-step">
-                                    <div class="qbp-global-pricing-rule-work-step__icon"><i class="fa fa-solid fa-bell-slash"></i></div>
-                                    <div class="qbp-global-pricing-rule-work-step__title"><?php echo esc_html__('Set Time Duration', 'easy-maintenance-mode-and-coming-soon')?></div>
-                                    <div class="qbp-global-pricing-rule-work-step__description"><?php echo esc_html__('Define how long maintenance mode should remain active', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                <div class="TRPlugin-emm-global-rule-work-step">
+                                    <div class="TRPlugin-emm-global-rule-work-step__icon"><i class="fa fa-solid fa-bell-slash"></i></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__title"><?php echo esc_html__('Set Time Duration', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__description"><?php echo esc_html__('Define how long maintenance mode should remain active', 'easy-maintenance-mode-and-coming-soon')?></div>
                                 </div>
 
                             </div>
 
-                            <div class="qbp-global-pricing-rule-work__close">
+                            <div class="TRPlugin-emm-global-rule-work__close">
                                 ×
                             </div>
                         </div>
 
 
-                        <div class="qbp-global-pricing-rule-form">
-                            <div class="qbp-global-pricing-rule-form__tabs">
+                        <div class="TRPlugin-emm-global-rule-form">
+                            <div class="TRPlugin-emm-global-rule-form__tabs">
 
-                                <div class="qbp-global-pricing-rule-form-tab qbp-global-pricing-rule-form-tab--active" data-target="qbp-global-pricing-rule-pricing">
-                                    <div class="qbp-global-pricing-rule-form-tab__icon">
+                                <div class="TRPlugin-emm-global-rule-form-tab TRPlugin-emm-global-rule-form-tab--active" data-target="TRPlugin-emm-global-rule-maintenance">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__icon">
                                         <span class="dashicons dashicons-arrow-right-alt2"></span>
                                     </div>
-                                    <div class="qbp-global-pricing-rule-form-tab__title">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__title">
                                         <h3><?php echo esc_html__('Enable Maintenance Mode', 'easy-maintenance-mode-and-coming-soon'); ?></h3>
                                         <div><?php echo esc_html__('Set up maintenance mode', 'easy-maintenance-mode-and-coming-soon'); ?></div>
                                     </div>
                                 </div>
 
 
-                                <div class="qbp-global-pricing-rule-form-tab " data-target="qbp-global-pricing-rule-products-and-categories">
-                                    <div class="qbp-global-pricing-rule-form-tab__icon">
+                                <div class="TRPlugin-emm-global-rule-form-tab " data-target="TRPlugin-emm-global-rule-page-template">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__icon">
                                         <span class="dashicons dashicons-arrow-right-alt2"></span>
                                     </div>
-                                    <div class="qbp-global-pricing-rule-form-tab__title">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__title">
                                         <h3><?php echo esc_html__('Custom Maintenance Page', 'easy-maintenance-mode-and-coming-soon')?></h3>
                                         <div><?php echo esc_html__('Set design template', 'easy-maintenance-mode-and-coming-soon')?></div>
                                     </div>
@@ -117,11 +117,11 @@ class EMM_Admin {
 
 
 
-                                <div class="qbp-global-pricing-rule-form-tab " data-target="qbp-global-pricing-rule-quantity">
-                                    <div class="qbp-global-pricing-rule-form-tab__icon">
+                                <div class="TRPlugin-emm-global-rule-form-tab " data-target="TRPlugin-emm-global-rule-countdown-timer">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__icon">
                                         <span class="dashicons dashicons-arrow-right-alt2"></span>
                                     </div>
-                                    <div class="qbp-global-pricing-rule-form-tab__title">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__title">
                                         <h3><?php echo esc_html__('Countdown Timer', 'easy-maintenance-mode-and-coming-soon')?></h3>
                                         <div><?php echo esc_html__('Time setup if needed', 'easy-maintenance-mode-and-coming-soon')?></div>
                                     </div>
@@ -129,14 +129,14 @@ class EMM_Admin {
 
                             </div>
 
-                            <div class="qbp-global-pricing-rule-form__content">
+                            <div class="TRPlugin-emm-global-rule-form__content">
 
-                                <div class="qbp-global-pricing-rule-form-tab-content qbp-global-pricing-rule-form-tab-content--active" id="qbp-global-pricing-rule-pricing">
-                                    <div class="qbp-global-pricing-rule-hint ">
-                                        <div class="qbp-global-pricing-rule-hint__icon">
+                                <div class="TRPlugin-emm-global-rule-form-tab-content TRPlugin-emm-global-rule-form-tab-content--active" id="TRPlugin-emm-global-rule-maintenance">
+                                    <div class="TRPlugin-emm-global-rule-hint ">
+                                        <div class="TRPlugin-emm-global-rule-hint__icon">
                                             <span class="dashicons dashicons-info"></span>
                                         </div>
-                                        <div class="qbp-global-pricing-rule-hint__content">
+                                        <div class="TRPlugin-emm-global-rule-hint__content">
                                             <?php echo esc_html__('While enabled, only administrators can access the backend.', 'easy-maintenance-mode-and-coming-soon')?>
                                             </div>
                                     </div>
@@ -158,12 +158,12 @@ class EMM_Admin {
 
 
 
-                                <div class="qbp-global-pricing-rule-form-tab-content " id="qbp-global-pricing-rule-products-and-categories">
-                                    <div class="qbp-global-pricing-rule-hint ">
-                                        <div class="qbp-global-pricing-rule-hint__icon">
+                                <div class="TRPlugin-emm-global-rule-form-tab-content " id="TRPlugin-emm-global-rule-page-template">
+                                    <div class="TRPlugin-emm-global-rule-hint ">
+                                        <div class="TRPlugin-emm-global-rule-hint__icon">
                                             <span class="dashicons dashicons-info"></span>
                                         </div>
-                                        <div class="qbp-global-pricing-rule-hint__content">
+                                        <div class="TRPlugin-emm-global-rule-hint__content">
                                             <?php echo esc_html__('Choose from multiple design templates.', 'easy-maintenance-mode-and-coming-soon')?>
                                         </div>
                                     </div>
@@ -172,12 +172,12 @@ class EMM_Admin {
 
 
 
-                                <div class="qbp-global-pricing-rule-form-tab-content " id="qbp-global-pricing-rule-quantity">
-                                    <div class="qbp-global-pricing-rule-hint ">
-                                        <div class="qbp-global-pricing-rule-hint__icon">
+                                <div class="TRPlugin-emm-global-rule-form-tab-content " id="TRPlugin-emm-global-rule-countdown-timer">
+                                    <div class="TRPlugin-emm-global-rule-hint ">
+                                        <div class="TRPlugin-emm-global-rule-hint__icon">
                                             <span class="dashicons dashicons-info"></span>
                                         </div>
-                                        <div class="qbp-global-pricing-rule-hint__content">
+                                        <div class="TRPlugin-emm-global-rule-hint__content">
                                             <?php echo esc_html__('Set an estimated time for maintenance completion.', 'easy-maintenance-mode-and-coming-soon')?></div>
                                     </div>
 
@@ -189,9 +189,9 @@ class EMM_Admin {
 
                     <!-- /post-body-content -->
 
-                    <div id="" class=" qbp-column-b">
+                    <div id="" class=" TRPlugin-emm-column-b">
 
-                        <div id="qbp_notice_notice_box" class="notice_box">
+                        <div id="TRPlugin-emm-notice-box" class="notice_box">
                             <h2 class="notice_box_header"><?php echo esc_html__('Save', 'easy-maintenance-mode-and-coming-soon')?></h2>
                             <hr/>
                             <div class="publish-content">
@@ -202,12 +202,12 @@ class EMM_Admin {
                             </div>
                         </div>
 
-                        <div id="qbp_notice_notice_box" class="notice_box">
+                        <div id="TRPlugin-emm-notice-box" class="notice_box">
                             <h2 class="notice_box_header"><?php echo esc_html__('Maintenance mode', 'easy-maintenance-mode-and-coming-soon')?></h2>
                             <hr/>
                             <div class="notice-content">
                                 <h4><?php echo esc_html__('Priorities are the following:', 'easy-maintenance-mode-and-coming-soon')?></h4>
-                                <ul class="qbp-global-pricing-notice-list">
+                                <ul class="TRPlugin-emm-notice-list">
                                     <li><?php echo esc_html__('User Experience – Inform visitors with a clear message and expected downtime duration.', 'easy-maintenance-mode-and-coming-soon')?></li>
                                     <li><?php echo esc_html__('Testing – Always test your maintenance page before enabling it on a live site.', 'easy-maintenance-mode-and-coming-soon')?></li>
                                 </ul>

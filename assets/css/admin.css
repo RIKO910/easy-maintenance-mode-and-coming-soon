@@ -2,33 +2,33 @@
     display: none
 }
 
-.TRPlugin-full-page {
+.TRPlugin-emm-full-page {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     box-sizing: border-box;
 }
 
-.qbp-columns-2 {
+.TRPlugin-emm-columns-2 {
     display: flex;
     width: 100%;
     flex-direction: row;
     gap: 20px;
 }
 
-.qbp-column-a {
+.TRPlugin-emm-column-a {
     flex: 3; /* 75% of the width */
     box-sizing: border-box;
 }
 
-.qbp-column-b {
+.TRPlugin-emm-column-b {
     flex: 1; /* 25% of the width */
     box-sizing: border-box;
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-    .qbp-columns-2 {
+    .TRPlugin-emm-columns-2 {
         flex-direction: column; /* Stack columns vertically on smaller screens */
     }
 }
@@ -39,7 +39,7 @@
     font-size: 1.7em;
 }
 
-.qbp-global-pricing-rule-work {
+.TRPlugin-emm-global-rule-work {
     background: #fff;
     border: 1px solid #e8e8e8;
     padding: 20px;
@@ -47,7 +47,7 @@
     text-align: center;
 }
 
-.qbp-global-pricing-rule-work__close {
+.TRPlugin-emm-global-rule-work__close {
     position: absolute;
     top: 10px;
     width: 26px;
@@ -61,18 +61,18 @@
     border-radius: 50%;
 }
 
-.qbp-global-pricing-rule-work__close:hover {
+.TRPlugin-emm-global-rule-work__close:hover {
     background: #f3ddee;
     cursor: pointer;
 }
 
-.qbp-global-pricing-rule-work__title {
+.TRPlugin-emm-global-rule-work__title {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
-.qbp-global-pricing-rule-work__steps {
+.TRPlugin-emm-global-rule-work__steps {
     justify-content: center;
     gap: 20px;
     display: flex;
@@ -80,21 +80,21 @@
     margin-top: 30px
 }
 
-.qbp-global-pricing-rule-work-step--arrow {
+.TRPlugin-emm-global-rule-work-step--arrow {
     color: #814c77;
 }
 
-.qbp-global-pricing-rule-work-step__title {
+.TRPlugin-emm-global-rule-work-step__title {
     font-size: 1.4em;
     font-weight: 600;
 }
 
-.qbp-global-pricing-rule-work-step__description {
+.TRPlugin-emm-global-rule-work-step__description {
     margin-top: 10px;
 }
 
-.qbp-global-pricing-rule-work-step__icon,
-.qbp-global-pricing-rule-work-step__icon span {
+.TRPlugin-emm-global-rule-work-step__icon,
+.TRPlugin-emm-global-rule-work-step__icon span {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -108,11 +108,11 @@
 }
 
 
-.qbp-global-pricing-rule-form .woocommerce-help-tip {
+.TRPlugin-emm-global-rule-form .woocommerce-help-tip {
     margin-left: 5px;
 }
 
-.qbp-global-pricing-rule-form {
+.TRPlugin-emm-global-rule-form {
     margin: 20px 0;
     display: flex;
     overflow: hidden;
@@ -120,13 +120,13 @@
     flex-wrap: nowrap;
 }
 
-.qbp-global-pricing-rule-form__tabs {
+.TRPlugin-emm-global-rule-form__tabs {
     width: 30%;
     max-width: 300px;
     min-width: 250px;
 }
 
-.qbp-global-pricing-rule-form-tab {
+.TRPlugin-emm-global-rule-form-tab {
     background: #fff;
     border-bottom: 1px solid #e8e8e8;
     border-left: 1px solid #e8e8e8;
@@ -137,48 +137,48 @@
     padding: 15px 10px;
 }
 
-.qbp-global-pricing-rule-form-tab:first-child {
+.TRPlugin-emm-global-rule-form-tab:first-child {
     border-top: 1px solid #e8e8e8;
 }
 
-.qbp-global-pricing-rule-form-tab:hover:not(.qbp-global-pricing-rule-form-tab--active) {
+.TRPlugin-emm-global-rule-form-tab:hover:not(.TRPlugin-emm-global-rule-form-tab--active) {
     background: #fbfbfb;
 }
 
-.qbp-global-pricing-rule-form-tab--active {
+.TRPlugin-emm-global-rule-form-tab--active {
     cursor: default;
     background: #faf6f9;
 }
 
-.qbp-global-pricing-rule-form-tab__icon {
+.TRPlugin-emm-global-rule-form-tab__icon {
     transition: all .1s;
     margin-right: 10px;
 }
 
-.qbp-global-pricing-rule-form-tab--active h3,
-.qbp-global-pricing-rule-form-tab--active div {
+.TRPlugin-emm-global-rule-form-tab--active h3,
+.TRPlugin-emm-global-rule-form-tab--active div {
     color: #814c77 !important;
 }
 
-.qbp-global-pricing-rule-form-tab__title h3 {
+.TRPlugin-emm-global-rule-form-tab__title h3 {
     font-size: 1.1em;
     margin: 0;
 }
 
-.qbp-global-pricing-rule-form-tab__title div {
+.TRPlugin-emm-global-rule-form-tab__title div {
     margin-top: 5px;
     color: #777;
 }
 
-.qbp-global-pricing-rule-form-tab-content {
+.TRPlugin-emm-global-rule-form-tab-content {
     display: none;
 }
 
-.qbp-global-pricing-rule-form-tab-content--active {
+.TRPlugin-emm-global-rule-form-tab-content--active {
     display: block;
 }
 
-.qbp-global-pricing-rule-form__content {
+.TRPlugin-emm-global-rule-form__content {
     width: 70%;
     background: #fff;
     flex-grow: 1;
@@ -189,7 +189,7 @@
 
 
 /* tab hint */
-.qbp-global-pricing-rule-hint {
+.TRPlugin-emm-global-rule-hint {
     display: flex;
     align-items: center;
     padding: 10px;
@@ -199,18 +199,18 @@
     margin-bottom: 20px;
 }
 
-.qbp-global-pricing-rule-hint--top-level {
+.TRPlugin-emm-global-rule-hint--top-level {
     margin-top: 10px;
 }
 
-.qbp-global-pricing-rule-hint__icon {
+.TRPlugin-emm-global-rule-hint__icon {
     margin-right: 10px;
 }
 
 
 
 /* Admin notice */
-#qbp_notice_notice_box.notice_box {
+#TRPlugin-emm-notice-box.notice_box {
     border: 1px solid #ccc;
     border-radius: 2px;
     margin-bottom: 20px;
@@ -230,18 +230,18 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-#qbp_notice_notice_box h4 {
+#TRPlugin-emm-notice-box h4 {
     margin: 10px 0;
     font-weight: bold;
     color: #444;
     font-size: 13px;
 }
-.qbp-global-pricing-notice-list {
+.TRPlugin-emm-notice-list {
     list-style-type: decimal;
     margin-left: 20px;
     padding-left: 20px;
 }
-.qbp-global-pricing-notice-list li {
+.TRPlugin-emm-notice-list li {
     margin-bottom: 5px;
     font-size: 13px;
     color: #555;
