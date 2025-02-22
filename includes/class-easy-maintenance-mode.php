@@ -137,5 +137,36 @@ class EMM_Mode {
         if ( is_admin() ) {
             new EMM_Admin();
         }
+
+        add_action('template_redirect', array( $this, 'emm_check_maintenance_mode' ) );
+        add_action('wp_enqueue_scripts', array( $this, 'enqueue_scripts_frontend' ) );
+    }
+
+    /**
+     * Maintenance mode template show on frontend.
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function emm_check_maintenance_mode(){
+        $maintenance_status = get_option('TRPlugin_emm_maintenance_mode', 'off');
+        if ( $maintenance_status == 'on' ) {
+            require_once EMM_PLUGIN_DIR. 'includes/maintenance-template/template-one.php';
+        }
+    }
+
+    /**
+     * Enqueue frontend styles and scripts.
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function enqueue_scripts_frontend() {
+        wp_enqueue_style(
+            'pct_frontend_style',
+            EMM_PLUGIN_URL . 'assets/css/frontend.css',
+            array(),
+            EMM_VERSION
+        );
     }
 }

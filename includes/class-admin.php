@@ -15,6 +15,7 @@ class EMM_Admin {
      */
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'admin_menu' ), 59 );
+        add_action('wp_ajax_emm_save_settings', array($this, 'TRPlugin_emm_save_settings'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
     }
 
@@ -30,7 +31,7 @@ class EMM_Admin {
             __( 'Easy Maintenance Mode', 'easy-maintenance-mode-and-coming-soon' ),
             'manage_options',
             'easy-maintenance-mode-and-coming-soon',
-            array( $this, 'render_settings_page' ),
+            array( $this, 'TRPlugin_emm_render_settings_page' ),
             'dashicons-hammer',
             6
         );
@@ -42,7 +43,7 @@ class EMM_Admin {
      * @since 1.0.0
      * @return void
      */
-    public function render_settings_page() {
+    public function TRPlugin_emm_render_settings_page() {
         ?>
 
         <div class="wrap">
@@ -144,13 +145,15 @@ class EMM_Admin {
                                     <div class=" ">
 
                                         <p class="form-field">
-                                            <label for="pricing_type"><?php echo esc_html__('Maintenance mode', 'easy-maintenance-mode-and-coming-soon')?></label>
-                                            <label for="pricing_type-flat" style="padding: 0; float: none; width: auto; margin: 0;">
-                                                <input type="radio"  style="margin-right: 3px;" value="flat" checked="checked" name="pricing_type" id="pricing_type-flat">
-                                                on</label>
-                                            <label for="pricing_type-percentage" style="padding: 0; float: none; width: auto; margin: 0 5px 0 20px;">
-                                                <input type="radio"  value="percentage" style="margin-right: 3px;" name="pricing_type" id="pricing_type-percentage">
-                                                Off</label>
+                                            <label for="emm-maintenance-mode"><?php echo esc_html__('Maintenance mode', 'easy-maintenance-mode-and-coming-soon'); ?></label>
+                                            <label>
+                                                <input type="radio" name="maintenance_mode" value="on" <?php checked(get_option('TRPlugin_emm_maintenance_mode', 'off'), 'on'); ?>>
+                                                <?php echo esc_html__('On', 'easy-maintenance-mode-and-coming-soon'); ?>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="maintenance_mode" value="off" <?php checked(get_option('TRPlugin_emm_maintenance_mode', 'off'), 'off'); ?>>
+                                                <?php echo esc_html__('Off', 'easy-maintenance-mode-and-coming-soon'); ?>
+                                            </label>
                                         </p>
 
                                     </div>
@@ -196,10 +199,12 @@ class EMM_Admin {
                             <hr/>
                             <div class="publish-content">
                                 <h4><?php echo esc_html__('Click the "Save" button to apply changes immediately.', 'easy-maintenance-mode-and-coming-soon')?></h4>
+                                <p id="emm-save-message" style="display:none; color: green; margin-top: 9px;"><?php echo esc_html__('Saved!', 'easy-maintenance-mode-and-coming-soon'); ?></p>
                             </div>
                             <div class="publish_button">
-                                <button class="btn "><?php echo esc_html__('Save', 'easy-maintenance-mode-and-coming-soon')?></button>
+                                <button id="emm-save-settings" class="btn"><?php echo esc_html__('Save', 'easy-maintenance-mode-and-coming-soon'); ?></button>
                             </div>
+                            <?php wp_nonce_field('emm_ajax_nonce', 'emm_ajax_nonce_field'); ?>
                         </div>
 
                         <div id="TRPlugin-emm-notice-box" class="notice_box">
@@ -220,6 +225,27 @@ class EMM_Admin {
 
         <?php
     }
+
+    /**
+     * Ajax request for save settings.
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function TRPlugin_emm_save_settings() {
+        check_ajax_referer('emm_ajax_nonce', 'nonce');
+
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error(array('message' => __('Unauthorized access', 'easy-maintenance-mode-and-coming-soon')));
+        }
+
+        $status = isset($_POST['maintenance_mode']) ? sanitize_text_field(wp_unslash($_POST['maintenance_mode'])) : 'off';
+
+        update_option('TRPlugin_emm_maintenance_mode', $status);
+
+        wp_send_json_success(array('message' => __('Settings saved successfully!', 'easy-maintenance-mode-and-coming-soon')));
+    }
+
 
     /**
      * Enqueue admin styles and scripts.
