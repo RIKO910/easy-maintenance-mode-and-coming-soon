@@ -15,10 +15,10 @@ class EMM_Admin {
      */
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'admin_menu' ), 59 );
-
-        // Enqueue admin scripts and styles.
+        add_action('wp_ajax_emm_save_settings', array($this, 'TRPlugin_emm_save_settings'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
     }
+
     /**
      * Add top-level menu.
      *
@@ -27,12 +27,12 @@ class EMM_Admin {
      */
     public function admin_menu() {
         add_menu_page(
-            __( 'Quantity Based Price', 'quantity-based-price' ),
-            __( 'Quantity Based Price', 'quantity-based-price' ),
+            __( 'Easy Maintenance Mode', 'easy-maintenance-mode-and-coming-soon' ),
+            __( 'Easy Maintenance Mode', 'easy-maintenance-mode-and-coming-soon' ),
             'manage_options',
-            'quantity-based-price',
-            array( $this, 'render_settings_page' ),
-            'dashicons-cart',
+            'easy-maintenance-mode-and-coming-soon',
+            array( $this, 'TRPlugin_emm_render_settings_page' ),
+            'dashicons-hammer',
             6
         );
     }
@@ -43,226 +43,209 @@ class EMM_Admin {
      * @since 1.0.0
      * @return void
      */
-    public function render_settings_page() {
+    public function TRPlugin_emm_render_settings_page() {
         ?>
 
         <div class="wrap">
-            <h1 class="">Add Pricing Rule</h1>
+            <h1 class=""><?php echo esc_html__('Easy Maintenance Mode', 'easy-maintenance-mode-and-coming-soon')?></h1>
 
-            <form name="post" action="" id="">
-                <div id="" class="qbp-full-page">
-                    <div id="" class="qbp-columns-2">
+            <div id="" class="TRPlugin-emm-full-page">
+                <div id="" class="TRPlugin-emm-columns-2">
+                    <div id="" class="TRPlugin-emm-column-a">
+                        <div class="TRPlugin-emm-global-rule-work">
+                            <div class="TRPlugin-emm-global-rule-work__title">
+                                <?php echo esc_html__('How Easy Maintenance Mode Works', 'easy-maintenance-mode-and-coming-soon')?>
+                            </div>
+                            <p><?php echo esc_html__('Easy maintenance mode plugin for WordPress works by temporarily disabling the front-end of your website while allowing administrators to work on updates, design changes, or other maintenance tasks.', 'easy-maintenance-mode-and-coming-soon')?></p>
 
-                        <div id="" class="qbp-column-a">
-                            <div class="qbp-title">
-                                <label for="title"></label>
-                                <input type="text" name="post_title" value="" placeholder="Add Title" id="title">
+                            <div class="TRPlugin-emm-global-rule-work__steps">
+
+                                <div class="TRPlugin-emm-global-rule-work-step">
+                                    <div class="TRPlugin-emm-global-rule-work-step__icon"><i class="fas fa-power-off"></i></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__title"><?php echo esc_html__('Turn On Maintenance', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__description"><?php echo esc_html__('Click the toggle button to activate maintenance mode', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                </div>
+                                <div class="TRPlugin-emm-global-rule-work-step TRPlugin-emm-global-rule-work-step--arrow">
+                                    <span class="dashicons dashicons-arrow-right-alt"></span>
+                                </div>
+
+                                <div class="TRPlugin-emm-global-rule-work-step">
+                                    <div class="TRPlugin-emm-global-rule-work-step__icon"><i class="fa fa-solid fa-pen-fancy"></i></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__title"><?php echo esc_html__('Choose a Design Template', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__description"><?php echo esc_html__('Select a pre-designed template for the maintenance page', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                </div>
+                                <div class="TRPlugin-emm-global-rule-work-step TRPlugin-emm-global-rule-work-step--arrow">
+                                    <span class="dashicons dashicons-arrow-right-alt"></span>
+                                </div>
+
+                                <div class="TRPlugin-emm-global-rule-work-step">
+                                    <div class="TRPlugin-emm-global-rule-work-step__icon"><i class="fa fa-solid fa-bell-slash"></i></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__title"><?php echo esc_html__('Set Time Duration', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    <div class="TRPlugin-emm-global-rule-work-step__description"><?php echo esc_html__('Define how long maintenance mode should remain active', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                </div>
+
                             </div>
 
-                            <div class="qbp-global-pricing-rule-work">
-                                <div class="qbp-global-pricing-rule-work__title">
-                                    How global pricing rules work
-                                </div>
-                                <p>Global rules are useful when you need to provide custom pricing for a bunch of products
-                                    and apply it to a specific group of users.</p>
-
-                                <div class="qbp-global-pricing-rule-work__steps">
-
-                                    <div class="qbp-global-pricing-rule-work-step">
-                                        <div class="qbp-global-pricing-rule-work-step__icon">$</div>
-                                        <div class="qbp-global-pricing-rule-work-step__title">Add pricing</div>
-                                        <div class="qbp-global-pricing-rule-work-step__description">Set up custom regular pricing.</div>
-                                    </div>
-                                    <div class="qbp-global-pricing-rule-work-step qbp-global-pricing-rule-work-step--arrow">
-                                        <span class="dashicons dashicons-arrow-right-alt"></span>
-                                    </div>
-
-                                    <div class="qbp-global-pricing-rule-work-step">
-                                        <div class="qbp-global-pricing-rule-work-step__icon">
-                                            <span class="dashicons dashicons-archive"></span></div>
-                                        <div class="qbp-global-pricing-rule-work-step__title">Select products</div>
-                                        <div class="qbp-global-pricing-rule-work-step__description">
-                                            Select products or product categories the rule will work for.</div>
-                                    </div>
-                                    <div class="qbp-global-pricing-rule-work-step qbp-global-pricing-rule-work-step--arrow">
-                                        <span class="dashicons dashicons-arrow-right-alt"></span>
-                                    </div>
-
-                                    <div class="qbp-global-pricing-rule-work-step">
-                                        <div class="qbp-global-pricing-rule-work-step__icon">
-                                            <span class="dashicons dashicons-database"></span></div>
-                                        <div class="qbp-global-pricing-rule-work-step__title">Specify quantity</div>
-                                        <div class="qbp-global-pricing-rule-work-step__description">
-                                            Specify minimum quantity for products.</div>
-                                    </div>
-
-                                </div>
-
-                                <div class="qbp-global-pricing-rule-work__close">
-                                    ×
-                                </div>
-                            </div>
-
-
-                            <div class="qbp-global-pricing-rule-form">
-                                <div class="qbp-global-pricing-rule-form__tabs">
-
-                                    <div class="qbp-global-pricing-rule-form-tab qbp-global-pricing-rule-form-tab--active" data-target="qbp-global-pricing-rule-pricing">
-                                        <div class="qbp-global-pricing-rule-form-tab__icon">
-                                            <span class="dashicons dashicons-arrow-right-alt2"></span>
-                                        </div>
-                                        <div class="qbp-global-pricing-rule-form-tab__title">
-                                            <h3>Pricing</h3>
-                                            <div>Set up regular and tiered pricing.</div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="qbp-global-pricing-rule-form-tab " data-target="qbp-global-pricing-rule-products-and-categories">
-                                        <div class="qbp-global-pricing-rule-form-tab__icon">
-                                            <span class="dashicons dashicons-arrow-right-alt2"></span>
-                                        </div>
-                                        <div class="qbp-global-pricing-rule-form-tab__title">
-                                            <h3>Products</h3>
-                                            <div>Select products or product categories the rule will work for.</div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="qbp-global-pricing-rule-form-tab " data-target="qbp-global-pricing-rule-quantity">
-                                        <div class="qbp-global-pricing-rule-form-tab__icon">
-                                            <span class="dashicons dashicons-arrow-right-alt2"></span>
-                                        </div>
-                                        <div class="qbp-global-pricing-rule-form-tab__title">
-                                            <h3>Quantity rules</h3>
-                                            <div>Specify minimum quantity for products.</div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="qbp-global-pricing-rule-form__content">
-
-                                    <div class="qbp-global-pricing-rule-form-tab-content qbp-global-pricing-rule-form-tab-content--active" id="qbp-global-pricing-rule-pricing">
-                                        <div class="qbp-global-pricing-rule-hint ">
-                                            <div class="qbp-global-pricing-rule-hint__icon">
-                                                <span class="dashicons dashicons-info"></span>
-                                            </div>
-                                            <div class="qbp-global-pricing-rule-hint__content">
-                                                This section controls the base product price. You can set new regular and sale prices or specify a percentage discount based on the original product price.			</div>
-                                        </div>
-
-                                        <div class=" ">
-
-                                            <p class="form-field">
-                                                <label for="pricing_type">Pricing type</label>
-                                                <label for="pricing_type-flat" style="padding: 0; float: none; width: auto; margin: 0;">
-                                                    <input type="radio"  style="margin-right: 3px;" value="flat" checked="checked" name="pricing_type" id="pricing_type-flat">
-                                                    Flat prices</label>
-                                                <label for="pricing_type-percentage" style="padding: 0; float: none; width: auto; margin: 0 5px 0 20px;">
-                                                    <input type="radio"  value="percentage" style="margin-right: 3px;" name="pricing_type" id="pricing_type-percentage">
-                                                    Percentage discount</label>
-                                            </p>
-
-                                            <p class="form-field " >
-                                                <label for="regular_price">Regular price ($)</label>
-                                                <input  type="text" value="" placeholder="Leave empty to don't change it"  name="regular_price" id="regular_price">
-                                            </p>
-
-                                            <p class="form-field " >
-                                                <label for="sale_price">Sale price ($)</label>
-                                                <input  type="text" value="" placeholder="Leave empty to don't change it" id="sale_price" name="sale_price">
-                                            </p>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="qbp-global-pricing-rule-form-tab-content " id="qbp-global-pricing-rule-products-and-categories">
-                                        <div class="qbp-global-pricing-rule-hint ">
-                                            <div class="qbp-global-pricing-rule-hint__icon">
-                                                <span class="dashicons dashicons-info"></span>
-                                            </div>
-                                            <div class="qbp-global-pricing-rule-hint__content">
-                                                If you do not specify products or product categories, the rule will work for all products in your store. (excluding products selected in the exclusions section)			</div>
-                                        </div>
-
-                                        <div class=" ">
-                                            <p class="form-field ">
-                                                <label for="product_categories">Apply for categories</label>
-                                                <input  type="text" value="" placeholder=""  name="product_categories" id="product_categories">
-                                            </p>
-
-                                            <p class="form-field " >
-                                                <label for="specific_products">Apply for specific products</label>
-                                                <input  type="text" value="" placeholder="" id="specific_products" name="specific_products">
-                                            </p>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="qbp-global-pricing-rule-form-tab-content " id="qbp-global-pricing-rule-quantity">
-                                        <div class="qbp-global-pricing-rule-hint ">
-                                            <div class="qbp-global-pricing-rule-hint__icon">
-                                                <span class="dashicons dashicons-info"></span>
-                                            </div>
-                                            <div class="qbp-global-pricing-rule-hint__content">
-                                                Quantity rules are applied to products individually.</div>
-                                        </div>
-                                        <div class=" ">
-                                            <p class="form-field" >
-                                                <label for="minimum_quantity">Minimum order quantity</label>
-                                                <input  type="number" min="0" value="" placeholder="" id="minimum_quantity" name="minimum_quantity">
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
+                            <div class="TRPlugin-emm-global-rule-work__close">
+                                ×
                             </div>
                         </div>
 
-                        <!-- /post-body-content -->
 
-                        <div id="" class=" qbp-column-b">
+                        <div class="TRPlugin-emm-global-rule-form">
+                            <div class="TRPlugin-emm-global-rule-form__tabs">
 
-                            <div id="qbp_notice_notice_box" class="notice_box">
-                                <h2 class="notice_box_header">Publish</h2>
-                                <hr/>
-                                <div class="publish-content">
-                                    <label for="status-select">Status:</label>
-                                    <select id="status-select" name="status">
-                                        <option value="drift">Draft</option>
-                                        <option value="pending-review">Pending Review</option>
-                                    </select>
+                                <div class="TRPlugin-emm-global-rule-form-tab TRPlugin-emm-global-rule-form-tab--active" data-target="TRPlugin-emm-global-rule-maintenance">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__icon">
+                                        <span class="dashicons dashicons-arrow-right-alt2"></span>
+                                    </div>
+                                    <div class="TRPlugin-emm-global-rule-form-tab__title">
+                                        <h3><?php echo esc_html__('Enable Maintenance Mode', 'easy-maintenance-mode-and-coming-soon'); ?></h3>
+                                        <div><?php echo esc_html__('Set up maintenance mode', 'easy-maintenance-mode-and-coming-soon'); ?></div>
+                                    </div>
                                 </div>
-                                <div class="publish_button">
-                                    <button class="btn ">Publish</button>
+
+
+                                <div class="TRPlugin-emm-global-rule-form-tab " data-target="TRPlugin-emm-global-rule-page-template">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__icon">
+                                        <span class="dashicons dashicons-arrow-right-alt2"></span>
+                                    </div>
+                                    <div class="TRPlugin-emm-global-rule-form-tab__title">
+                                        <h3><?php echo esc_html__('Custom Maintenance Page', 'easy-maintenance-mode-and-coming-soon')?></h3>
+                                        <div><?php echo esc_html__('Set design template', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    </div>
                                 </div>
+
+
+
+                                <div class="TRPlugin-emm-global-rule-form-tab " data-target="TRPlugin-emm-global-rule-countdown-timer">
+                                    <div class="TRPlugin-emm-global-rule-form-tab__icon">
+                                        <span class="dashicons dashicons-arrow-right-alt2"></span>
+                                    </div>
+                                    <div class="TRPlugin-emm-global-rule-form-tab__title">
+                                        <h3><?php echo esc_html__('Countdown Timer', 'easy-maintenance-mode-and-coming-soon')?></h3>
+                                        <div><?php echo esc_html__('Time setup if needed', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div id="qbp_notice_notice_box" class="notice_box">
-                                <h2 class="notice_box_header">Pricing notice</h2>
-                                <hr/>
-                                <div class="notice-content">
-                                    <h4>Please note that rules in products have higher priority overriding the pricing rules you set here.</h4>
-                                    <h4>Priorities are the following:</h4>
-                                    <ul class="qbp-global-pricing-notice-list">
-                                        <li>Single product rules (or single variation)</li>
-                                        <li>Variable product rules (if a product is a variable)</li>
-                                        <li>Global rules</li>
-                                    </ul>
+                            <div class="TRPlugin-emm-global-rule-form__content">
+
+                                <div class="TRPlugin-emm-global-rule-form-tab-content TRPlugin-emm-global-rule-form-tab-content--active" id="TRPlugin-emm-global-rule-maintenance">
+                                    <div class="TRPlugin-emm-global-rule-hint ">
+                                        <div class="TRPlugin-emm-global-rule-hint__icon">
+                                            <span class="dashicons dashicons-info"></span>
+                                        </div>
+                                        <div class="TRPlugin-emm-global-rule-hint__content">
+                                            <?php echo esc_html__('While enabled, only administrators can access the backend.', 'easy-maintenance-mode-and-coming-soon')?>
+                                            </div>
+                                    </div>
+
+                                    <div class=" ">
+
+                                        <p class="form-field">
+                                            <label for="emm-maintenance-mode"><?php echo esc_html__('Maintenance mode', 'easy-maintenance-mode-and-coming-soon'); ?></label>
+                                            <label>
+                                                <input type="radio" name="maintenance_mode" value="on" <?php checked(get_option('TRPlugin_emm_maintenance_mode', 'off'), 'on'); ?>>
+                                                <?php echo esc_html__('On', 'easy-maintenance-mode-and-coming-soon'); ?>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="maintenance_mode" value="off" <?php checked(get_option('TRPlugin_emm_maintenance_mode', 'off'), 'off'); ?>>
+                                                <?php echo esc_html__('Off', 'easy-maintenance-mode-and-coming-soon'); ?>
+                                            </label>
+                                        </p>
+
+                                    </div>
                                 </div>
+
+
+
+                                <div class="TRPlugin-emm-global-rule-form-tab-content " id="TRPlugin-emm-global-rule-page-template">
+                                    <div class="TRPlugin-emm-global-rule-hint ">
+                                        <div class="TRPlugin-emm-global-rule-hint__icon">
+                                            <span class="dashicons dashicons-info"></span>
+                                        </div>
+                                        <div class="TRPlugin-emm-global-rule-hint__content">
+                                            <?php echo esc_html__('Choose from multiple design templates.', 'easy-maintenance-mode-and-coming-soon')?>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="TRPlugin-emm-global-rule-form-tab-content " id="TRPlugin-emm-global-rule-countdown-timer">
+                                    <div class="TRPlugin-emm-global-rule-hint ">
+                                        <div class="TRPlugin-emm-global-rule-hint__icon">
+                                            <span class="dashicons dashicons-info"></span>
+                                        </div>
+                                        <div class="TRPlugin-emm-global-rule-hint__content">
+                                            <?php echo esc_html__('Set an estimated time for maintenance completion.', 'easy-maintenance-mode-and-coming-soon')?></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /post-body-content -->
+
+                    <div id="" class=" TRPlugin-emm-column-b">
+
+                        <div id="TRPlugin-emm-notice-box" class="notice_box">
+                            <h2 class="notice_box_header"><?php echo esc_html__('Save', 'easy-maintenance-mode-and-coming-soon')?></h2>
+                            <hr/>
+                            <div class="publish-content">
+                                <h4><?php echo esc_html__('Click the "Save" button to apply changes immediately.', 'easy-maintenance-mode-and-coming-soon')?></h4>
+                                <p id="emm-save-message" style="display:none; color: green; margin-top: 9px;"><?php echo esc_html__('Saved!', 'easy-maintenance-mode-and-coming-soon'); ?></p>
+                            </div>
+                            <div class="publish_button">
+                                <button id="emm-save-settings" class="btn"><?php echo esc_html__('Save', 'easy-maintenance-mode-and-coming-soon'); ?></button>
+                            </div>
+                            <?php wp_nonce_field('emm_ajax_nonce', 'emm_ajax_nonce_field'); ?>
+                        </div>
+
+                        <div id="TRPlugin-emm-notice-box" class="notice_box">
+                            <h2 class="notice_box_header"><?php echo esc_html__('Maintenance mode', 'easy-maintenance-mode-and-coming-soon')?></h2>
+                            <hr/>
+                            <div class="notice-content">
+                                <h4><?php echo esc_html__('Priorities are the following:', 'easy-maintenance-mode-and-coming-soon')?></h4>
+                                <ul class="TRPlugin-emm-notice-list">
+                                    <li><?php echo esc_html__('User Experience – Inform visitors with a clear message and expected downtime duration.', 'easy-maintenance-mode-and-coming-soon')?></li>
+                                    <li><?php echo esc_html__('Testing – Always test your maintenance page before enabling it on a live site.', 'easy-maintenance-mode-and-coming-soon')?></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
 
         <?php
     }
+
+    /**
+     * Ajax request for save settings.
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function TRPlugin_emm_save_settings() {
+        check_ajax_referer('emm_ajax_nonce', 'nonce');
+
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error(array('message' => __('Unauthorized access', 'easy-maintenance-mode-and-coming-soon')));
+        }
+
+        $status = isset($_POST['maintenance_mode']) ? sanitize_text_field(wp_unslash($_POST['maintenance_mode'])) : 'off';
+
+        update_option('TRPlugin_emm_maintenance_mode', $status);
+
+        wp_send_json_success(array('message' => __('Settings saved successfully!', 'easy-maintenance-mode-and-coming-soon')));
+    }
+
 
     /**
      * Enqueue admin styles and scripts.
@@ -274,6 +257,26 @@ class EMM_Admin {
      */
     public function enqueue_admin_assets($hook)
     {
+        //  Fontawesome
+        wp_enqueue_style(
+                'main-font-awesome-css-custom',
+            EMM_PLUGIN_URL . 'assets/fontawesome/css/fontawesome.min.css',
+                array(),
+                '5.15.3'
+        );
+        wp_enqueue_style(
+            'main-all-css-custom',
+            EMM_PLUGIN_URL . 'assets/fontawesome/css/all.min.css',
+            array(),
+            '5.15.3'
+        );
+        wp_enqueue_style(
+                'font-awesome-webfonts',
+            EMM_PLUGIN_URL . 'assets/fontawesome/webfonts',
+            array(),
+            '5.15.3'
+        );
+
         // Enqueue admin CSS.
         wp_enqueue_style(
             'pct_admin_style',

@@ -1,8 +1,8 @@
 <?php
 /*
- * Plugin Name:       Easy maintenance mode.
+ * Plugin Name:       Easy Maintenance Mode and Coming Soon
  * Plugin URI:        https://tarikul.blog/plugins/quantity-based-price/
- * Description:
+ * Description:       A simple and lightweight maintenance mode plugin for WordPress.
  * Version:           1.0.0
  * Requires at least: 6.5
  * Requires PHP:      7.2
@@ -10,14 +10,11 @@
  * Author URI:        https://tarikul.blog
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       easy-maintenance-mode
- * Domain Path:       /languages/
+ * Text Domain:       easy-maintenance-mode-and-coming-soon
 */
 
 /*
-Easy maintenance mood.
-
-
+A simple and lightweight maintenance mode plugin that allows you to display a customizable "Under Maintenance" page.
 */
 
 defined( 'ABSPATH' ) || exit; // Exist if accessed directly.
