@@ -1,12 +1,12 @@
 <?php
 /*
  * Plugin Name:       Easy Maintenance Mode and Coming Soon
- * Plugin URI:        https://tarikul.blog/plugins/quantity-based-price/
+ * Plugin URI:        https://tarikul.blog/plugins/easy-maintenance-mode-and-coming-soon
  * Description:       A simple and lightweight maintenance mode plugin for WordPress.
  * Version:           1.0.0
  * Requires at least: 6.5
  * Requires PHP:      7.2
- * Author:            Tarikul
+ * Author:            Tarikul Islam Riko
  * Author URI:        https://tarikul.blog
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

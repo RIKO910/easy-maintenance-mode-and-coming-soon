@@ -1,5 +1,5 @@
 === Easy Maintenance Mode and Coming Soon ===
-Contributors: tarikulislamriko
+Contributors: riko910
 Tags: maintenance mode, coming soon, site offline, under construction
 Requires at least: 6.5
 Tested up to: 6.8
