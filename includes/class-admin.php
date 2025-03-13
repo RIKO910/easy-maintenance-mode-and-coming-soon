@@ -204,7 +204,7 @@ class EASYMAMO_Admin {
                             <div class="publish_button">
                                 <button id="emm-save-settings" class="btn"><?php echo esc_html__('Save', 'easy-maintenance-mode-and-coming-soon'); ?></button>
                             </div>
-                            <?php wp_nonce_field('emm_ajax_nonce', 'emm_ajax_nonce_field'); ?>
+                            <?php wp_nonce_field('easymamo_admin_ajax_nonce', 'easymamo_admin_ajax_nonce_field'); ?>
                         </div>
 
                         <div id="TRPlugin-emm-notice-box" class="notice_box">
@@ -233,7 +233,7 @@ class EASYMAMO_Admin {
      * @return void
      */
     public function TRPlugin_emm_save_settings() {
-        check_ajax_referer('emm_ajax_nonce', 'nonce');
+        check_ajax_referer('easymamo_admin_ajax_nonce', 'nonce');
 
         if (!current_user_can('manage_options')) {
             wp_send_json_error(array('message' => __('Unauthorized access', 'easy-maintenance-mode-and-coming-soon')));
