@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  */
-class EMM_Mode {
+class EASYMAMO_Mode {
 
     /**
      * File.
@@ -48,10 +48,10 @@ class EMM_Mode {
      * @since 1.0.0
      */
     public function define_constant() {
-        define( 'EMM_VERSION', $this->version );
-        define( 'EMM_PLUGIN_DIR', plugin_dir_path( $this->file ) );
-        define( 'EMM_PLUGIN_URL', plugin_dir_url( $this->file ) );
-        define( 'EMM_PLUGIN_BASENAME', plugin_basename( $this->file ) );
+        define( 'EASYMAMO_VERSION', $this->version );
+        define( 'EASYMAMO_PLUGIN_DIR', plugin_dir_path( $this->file ) );
+        define( 'EASYMAMO_PLUGIN_URL', plugin_dir_url( $this->file ) );
+        define( 'EASYMAMO_PLUGIN_BASENAME', plugin_basename( $this->file ) );
     }
 
     /**
@@ -71,7 +71,7 @@ class EMM_Mode {
      * @since 1.0.0
      */
     public function activation_hook() {
-        update_option( 'EMM_VERSION', $this->version );
+        update_option( 'EASYMAMO_VERSION', $this->version );
     }
 
     /**
@@ -91,7 +91,7 @@ class EMM_Mode {
      * @since 1.0.0
      */
     public function deactivation_hook() {
-        delete_option( 'EMM_VERSION' );
+        delete_option( 'EASYMAMO_VERSION' );
     }
 
     /**
@@ -101,19 +101,8 @@ class EMM_Mode {
      * @since 1.0.0
      */
     public function init_hooks() {
-        add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
         add_action( 'admin_notices', array( $this, 'admin_notices' ) );
         add_action( 'init', array( $this, 'init' ) );
-    }
-
-    /**
-     * Load textdomain.
-     *
-     * @return void
-     * @since 1.0.0
-     */
-    public function load_textdomain() {
-        load_plugin_textdomain( 'easy-maintenance-mode-and-coming-soon', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
     }
 
     /**
@@ -135,7 +124,7 @@ class EMM_Mode {
     public function init() {
 
         if ( is_admin() ) {
-            new EMM_Admin();
+            new EASYMAMO_Admin();
         }
 
         add_action('template_redirect', array( $this, 'emm_check_maintenance_mode' ) );
@@ -149,9 +138,9 @@ class EMM_Mode {
      * @return void
      */
     public function emm_check_maintenance_mode(){
-        $maintenance_status = get_option('TRPlugin_emm_maintenance_mode', 'off');
+        $maintenance_status = get_option('easymamo_maintenance_mode_on_off', 'off');
         if ( $maintenance_status == 'on' ) {
-            require_once EMM_PLUGIN_DIR. 'includes/maintenance-template/template-one.php';
+            require_once EASYMAMO_PLUGIN_DIR. 'includes/maintenance-template/template-one.php';
         }
     }
 
@@ -164,9 +153,9 @@ class EMM_Mode {
     public function enqueue_scripts_frontend() {
         wp_enqueue_style(
             'pct_frontend_style',
-            EMM_PLUGIN_URL . 'assets/css/frontend.css',
+            EASYMAMO_PLUGIN_URL . 'assets/css/frontend.css',
             array(),
-            EMM_VERSION
+            EASYMAMO_VERSION
         );
     }
 }
