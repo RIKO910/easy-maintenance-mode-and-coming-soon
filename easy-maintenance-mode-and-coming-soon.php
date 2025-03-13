@@ -30,7 +30,7 @@ require_once __DIR__ . '/includes/class-admin.php';
  * @retun Object Plugin object.
  */
 function easy_maintenance_mode() {
-    return new EMM_Mode( __FILE__, '1.0.0' );
+    return new EASYMAMO_Mode( __FILE__, '1.0.0' );
 }
 
 easy_maintenance_mode();

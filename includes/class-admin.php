@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  */
-class EMM_Admin {
+class EASYMAMO_Admin {
 
 
     /**
@@ -147,11 +147,11 @@ class EMM_Admin {
                                         <p class="form-field">
                                             <label for="emm-maintenance-mode"><?php echo esc_html__('Maintenance mode', 'easy-maintenance-mode-and-coming-soon'); ?></label>
                                             <label>
-                                                <input type="radio" name="maintenance_mode" value="on" <?php checked(get_option('TRPlugin_emm_maintenance_mode', 'off'), 'on'); ?>>
+                                                <input type="radio" name="maintenance_mode" value="on" <?php checked(get_option('easymamo_maintenance_mode_on_off', 'off'), 'on'); ?>>
                                                 <?php echo esc_html__('On', 'easy-maintenance-mode-and-coming-soon'); ?>
                                             </label>
                                             <label>
-                                                <input type="radio" name="maintenance_mode" value="off" <?php checked(get_option('TRPlugin_emm_maintenance_mode', 'off'), 'off'); ?>>
+                                                <input type="radio" name="maintenance_mode" value="off" <?php checked(get_option('easymamo_maintenance_mode_on_off', 'off'), 'off'); ?>>
                                                 <?php echo esc_html__('Off', 'easy-maintenance-mode-and-coming-soon'); ?>
                                             </label>
                                         </p>
@@ -204,7 +204,7 @@ class EMM_Admin {
                             <div class="publish_button">
                                 <button id="emm-save-settings" class="btn"><?php echo esc_html__('Save', 'easy-maintenance-mode-and-coming-soon'); ?></button>
                             </div>
-                            <?php wp_nonce_field('emm_ajax_nonce', 'emm_ajax_nonce_field'); ?>
+                            <?php wp_nonce_field('easymamo_admin_ajax_nonce', 'easymamo_admin_ajax_nonce_field'); ?>
                         </div>
 
                         <div id="TRPlugin-emm-notice-box" class="notice_box">
@@ -233,7 +233,7 @@ class EMM_Admin {
      * @return void
      */
     public function TRPlugin_emm_save_settings() {
-        check_ajax_referer('emm_ajax_nonce', 'nonce');
+        check_ajax_referer('easymamo_admin_ajax_nonce', 'nonce');
 
         if (!current_user_can('manage_options')) {
             wp_send_json_error(array('message' => __('Unauthorized access', 'easy-maintenance-mode-and-coming-soon')));
@@ -241,7 +241,7 @@ class EMM_Admin {
 
         $status = isset($_POST['maintenance_mode']) ? sanitize_text_field(wp_unslash($_POST['maintenance_mode'])) : 'off';
 
-        update_option('TRPlugin_emm_maintenance_mode', $status);
+        update_option('easymamo_maintenance_mode_on_off', $status);
 
         wp_send_json_success(array('message' => __('Settings saved successfully!', 'easy-maintenance-mode-and-coming-soon')));
     }
@@ -260,19 +260,19 @@ class EMM_Admin {
         //  Fontawesome
         wp_enqueue_style(
                 'main-font-awesome-css-custom',
-            EMM_PLUGIN_URL . 'assets/fontawesome/css/fontawesome.min.css',
+            EASYMAMO_PLUGIN_URL . 'assets/fontawesome/css/fontawesome.min.css',
                 array(),
                 '5.15.3'
         );
         wp_enqueue_style(
             'main-all-css-custom',
-            EMM_PLUGIN_URL . 'assets/fontawesome/css/all.min.css',
+            EASYMAMO_PLUGIN_URL . 'assets/fontawesome/css/all.min.css',
             array(),
             '5.15.3'
         );
         wp_enqueue_style(
                 'font-awesome-webfonts',
-            EMM_PLUGIN_URL . 'assets/fontawesome/webfonts',
+            EASYMAMO_PLUGIN_URL . 'assets/fontawesome/webfonts',
             array(),
             '5.15.3'
         );
@@ -280,17 +280,17 @@ class EMM_Admin {
         // Enqueue admin CSS.
         wp_enqueue_style(
             'pct_admin_style',
-            EMM_PLUGIN_URL . 'assets/css/admin.css',
+            EASYMAMO_PLUGIN_URL . 'assets/css/admin.css',
             array(),
-            EMM_VERSION
+            EASYMAMO_VERSION
         );
 
         // Enqueue admin JavaScript.
         wp_enqueue_script(
             'qbt_admin_script',
-            EMM_PLUGIN_URL . 'assets/js/admin.js',
+            EASYMAMO_PLUGIN_URL . 'assets/js/admin.js',
             array('jquery'),
-            EMM_VERSION,
+            EASYMAMO_VERSION,
             true
         );
     }

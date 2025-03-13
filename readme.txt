@@ -64,4 +64,4 @@ First stable release. Install and enable maintenance mode easily.
 
 == Support ==
 
-For support, visit [https://tarikul.blog](https://tarikul.blog) or contact via [tarikulislamriko910@gmail.com](mailto:tarikulislamriko910@gmail.com).
+For support, visit [https://tarikul.blog](https://tarikul.blog) or contact via [support@tarikul.blog](mailto:support@tarikul.blog).

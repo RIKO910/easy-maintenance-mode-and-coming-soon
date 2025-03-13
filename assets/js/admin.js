@@ -33,7 +33,7 @@
                 $btn.html('<span><i class="fa fa-refresh fa-spin"></i></span> Loading...').prop('disabled', true);
 
                 var maintenanceMode = $('input[name="maintenance_mode"]:checked').val();
-                var nonce = $('#emm_ajax_nonce_field').val();
+                var nonce = $('#easymamo_admin_ajax_nonce_field').val();
 
                 $.ajax({
                     type: 'POST',

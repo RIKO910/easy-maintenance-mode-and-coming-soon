@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 
     $message = get_option('emm_message', 'We are currently undergoing maintenance. Please check back later.');
     ?>
