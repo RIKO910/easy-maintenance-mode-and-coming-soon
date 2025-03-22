@@ -151,11 +151,14 @@ class EASYMAMO_Mode {
      * @return void
      */
     public function enqueue_scripts_frontend() {
-        wp_enqueue_style(
-            'pct_frontend_style',
-            EASYMAMO_PLUGIN_URL . 'assets/css/frontend.css',
-            array(),
-            EASYMAMO_VERSION
-        );
+        $maintenance_status = get_option('easymamo_maintenance_mode_on_off', 'off');
+        if ( $maintenance_status == 'on' ) {
+            wp_enqueue_style(
+                'pct_frontend_style',
+                EASYMAMO_PLUGIN_URL . 'assets/css/frontend.css',
+                array(),
+                EASYMAMO_VERSION
+            );
+        }
     }
 }
